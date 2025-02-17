@@ -5,8 +5,8 @@
   "url": "https://github.com/ScrappySM/SM-LoadString",
 
   "authors": [
-    "ScrappySM"
+    "BenMcAvoy"
   ],
 
-  "description": "No description yet, needs to be filled in"
+  "description": "Allows modders to load strings from UGC mods."
 }

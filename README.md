@@ -67,3 +67,7 @@ runCode()
 -- 10
 -- 15
 ```
+
+## Thanks
+
+Thanks to [crackx02](https://github.com/crackx02) and [QuestionableM](https://github.com/QuestionableM) for pointing out any sandbox escapes allowing the mod to be more secure.
