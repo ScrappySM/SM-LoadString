@@ -28,12 +28,21 @@ namespace Carbon::SM {
 		/* 0x017C */ PUB GameStateType gameState;
 
 	public:
+		template <bool guaranteed = false>
+		[[nodiscard]]
 		static bool IsPlaying() {
-			while (Contraption::GetInstance()->gameState <= Null || Contraption::GetInstance()->gameState > WorldBuilder) {
-				std::this_thread::sleep_for(std::chrono::milliseconds(100));
+			if constexpr (guaranteed) {
+				auto t = Contraption::GetInstance();
+				while (t->gameState <= Null || t->gameState > WorldBuilder) {
+					std::this_thread::sleep_for(std::chrono::milliseconds(100));
+				}
+
+				return t->gameState == Play;
 			}
 
-			return Contraption::GetInstance()->gameState == Play;
+			Contraption* t = Contraption::GetInstance();
+			if (!t) return false;
+			return t->gameState == Play;
 		}
 	};
 } // namespace Carbon::SM
