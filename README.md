@@ -21,7 +21,9 @@ This mod is for developers and modders, it allows you to run Lua code from a str
 - Making a computers mod that runs Lua from an in game GUI.
 - Allowing users to run Lua code from a string in any UGC/env.
 
-Here's an example of how you can use this mod:
+## Examples
+
+### Global Env (same as wherever you call the function from)
 
 ```lua
 local code = [[
@@ -36,7 +38,7 @@ else
 end
 ```
 
-There is also the opportunity to use your own env, here's an example of how you can do that:
+### Custom Env
 
 ```lua
 local env = {
@@ -66,6 +68,23 @@ runCode()
 -- 5
 -- 10
 -- 15
+```
+
+## Errors
+
+If there is an error in the code, it will return the error as a string as the second return value. If there is no error, it will return `nil`.
+However, if there is a misuse of the function, it will throw an error. You can catch these with `pcall` however these errors only exist when you misuse the API and so are best to be fixed rather than caught.
+
+## Checking if the DLL is installed
+
+You can check if the DLL is installed by running the following code:
+
+```lua
+if loadstring then
+    print("DLL is installed")
+else
+    print("DLL is not installed")
+end
 ```
 
 ## Thanks
